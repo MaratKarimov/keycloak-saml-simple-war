@@ -1,0 +1,23 @@
+<keycloak-saml-adapter xmlns="urn:keycloak:saml:adapter"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="urn:keycloak:saml:adapter http://www.keycloak.org/schema/keycloak_saml_adapter_1_7.xsd">
+
+    <SP entityID="http://localhost:8080/simplewar/"
+        sslPolicy="NONE"
+        nameIDPolicyFormat="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+        logoutPage="/logout.jsp"
+        forceAuthentication="false"
+        isPassive="false"
+        turnOffChangeSessionIdOnLogin="false">
+        <!-- IDP -->
+        <IDP entityID="idp" signaturesRequired="false">
+            <!-- SingleSignOnService -->
+            <SingleSignOnService requestBinding="POST" bindingUrl="http://localhost:8180/auth/realms/saml-demo/protocol/saml"/>
+            <!-- SingleLogoutService -->
+            <SingleLogoutService requestBinding="POST" responseBinding="POST"
+                    postBindingUrl="http://localhost:8180/auth/realms/saml-demo/protocol/saml"
+                    redirectBindingUrl="http://localhost:8180/auth/realms/saml-demo/protocol/saml"
+            />
+        </IDP>
+    </SP>
+</keycloak-saml-adapter>
