@@ -1,6 +1,6 @@
 # keycloak-saml-simple-war
 
-# Simple web archive to show Keycloak work with Java Servlet Filter Adapter 
+Simple web archive to show Keycloak work with Java Servlet Filter Adapter 
 
 ## Build app
 To build app:
